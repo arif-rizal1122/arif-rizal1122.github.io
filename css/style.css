@@ -1,5 +1,7 @@
 
-
+body {
+    scroll-behavior: smooth;
+}
 /* Navbar */
 .navbar-brand {
     font: 32px Viga;
