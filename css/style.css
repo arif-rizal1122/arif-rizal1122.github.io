@@ -2,22 +2,33 @@
 body {
     scroll-behavior: smooth;
 }
+
+
+
 /* Navbar */
 .navbar-brand {
     font: 32px Viga;
 }
-.large-icon {
-    font-size: 6rem; 
-    margin-right: 0.5rem;
+
+
+.large-img {
+    width: 130px;
+    height: 130px;
+    padding: 0.5rem;
+    margin: 2rem;
 }
 
 /* Jumbotron */
 .jumbotron {
     background: url(../img/jumbo.jpg);
     background-size: cover;
-    height: 540px;
+    background-position: center;
+    filter: brightness(0.9);
+    height: 520px;
     position: relative;
     z-index: -1;
+    color: white;
+
 }
 
 .jumbotron::after {
@@ -142,7 +153,22 @@ body {
     font-style: normal;
 }
 
+footer {
+   padding: 2rem;
+   background-color: blue;
+   color: white;
+}
 
+.list-inline{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-inline-item a {
+    color: white;
+    font-weight: 500;
+}
 
 /* Utility */
 .tombol {
