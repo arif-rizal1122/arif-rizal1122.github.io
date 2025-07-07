@@ -12,11 +12,557 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    
     <title>Arif Rizal - Modern Portfolio</title>
     
- 
+    <style>
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --text-dark: #2d3748;
+        --text-light: #718096;
+        --bg-light: #f7fafc;
+        --bg-dark: #1a202c;
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
 
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .navbar-brand {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color) !important;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        /* Fallback untuk browser yang tidak support background-clip */
+      }
+      
+      /* Fallback untuk browser yang tidak support background-clip */
+      @supports not (-webkit-background-clip: text) {
+        .navbar-brand {
+          color: var(--primary-color) !important;
+          background: none !important;
+        }
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--text-dark) !important;
+        margin: 0 15px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+        background-size: cover;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+      }
+
+      .hero h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: slideUp 1s ease forwards;
+      }
+      
+      .hero h1 span {
+        color: var(--accent-color);
+        font-weight: 800;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: slideUp 1s ease 0.3s forwards;
+      }
+
+      .hero-btn {
+        background: var(--gradient-secondary);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        animation: slideUp 1s ease 0.6s forwards;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Info Panel */
+      .info-panel {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-top: -80px;
+        position: relative;
+        z-index: 3;
+        transform: translateY(50px);
+        opacity: 0;
+        animation: slideUp 1s ease 1s forwards;
+      }
+
+      .info-item {
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .info-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-item i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+      }
+      
+      /* Fallback untuk browser yang tidak support background-clip */
+      @supports not (-webkit-background-clip: text) {
+        .info-item i {
+          color: var(--primary-color) !important;
+          background: none !important;
+        }
+      }
+
+      .info-item h4 {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+      }
+
+      .info-item p {
+        color: var(--text-light);
+        margin: 0;
+      }
+
+      /* Section Titles */
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 50px;
+        height: 3px;
+        background: var(--gradient-primary);
+        transform: translateX(-50%);
+      }
+
+      /* About Section */
+      .about-section {
+        padding: 100px 0;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .about-text h3 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+      }
+      
+      .about-text h3 span {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+      }
+
+      .about-image {
+        position: relative;
+      }
+
+      .about-image::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: -20px;
+        bottom: -20px;
+        background: var(--gradient-primary);
+        border-radius: 15px;
+        z-index: -1;
+      }
+
+      .about-image img {
+        border-radius: 15px;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Projects Section */
+      .projects-section {
+        padding: 100px 0;
+        background: var(--bg-light);
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 40px;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-card .card-header {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 20px;
+        border: none;
+      }
+
+      .project-card h5 {
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .project-card .card-body {
+        padding: 30px;
+      }
+
+      .project-card p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+      }
+
+      .project-images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .project-images img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .project-images img:hover {
+        transform: scale(1.05);
+      }
+
+      .project-link {
+        display: inline-block;
+        background: var(--gradient-accent);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Skills Section */
+      .skills-section {
+        padding: 100px 0;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .skill-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-color);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* Fallback untuk browser yang tidak support background-clip */
+      @supports not (-webkit-background-clip: text) {
+        .skill-icon {
+          color: var(--primary-color) !important;
+          background: none !important;
+        }
+      }
+
+      .skill-card h4 {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+      }
+
+      .skill-card p {
+        color: var(--text-light);
+        margin: 0;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: var(--gradient-primary);
+        color: white;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        color: white;
+        margin-bottom: 40px;
+      }
+
+      .contact-section .section-title h2::after {
+        background: white;
+      }
+
+      .contact-quote {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--bg-dark);
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-text {
+        color: var(--text-light);
+        margin: 0;
+      }
+
+      /* Animations */
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        
+        .hero p {
+          font-size: 1.1rem;
+        }
+        
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
+        }
+        
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .info-panel {
+          margin-top: -40px;
+          padding: 30px 20px;
+        }
+      }
+
+      /* Scroll Animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -42,7 +588,7 @@
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
-          <h1>Get Work Done <span style="color: var(--accent-color);">Faster</span><br>and <span style="color: var(--accent-color);">Better</span></h1>
+          <h1>Get Work Done <span>Faster</span><br>and <span>Better</span></h1>
           <p>Creating amazing digital experiences with modern web technologies</p>
           <a href="#projects" class="hero-btn">View My Work</a>
         </div>
@@ -87,7 +633,7 @@
         <div class="row about-content fade-in">
           <div class="col-lg-6">
             <div class="about-text">
-              <h3>You <span style="color: var(--primary-color);">Work</span> Like at <span style="color: var(--primary-color);">Home</span></h3>
+              <h3>You <span>Work</span> Like at <span>Home</span></h3>
               <p>Bekerja dengan suasana hati yang lebih asik, menyenangkan dan mempelajari hal baru setiap harinya. Saya adalah seorang web developer yang passionate dalam menciptakan pengalaman digital yang luar biasa.</p>
               <p>Dengan pengalaman dalam berbagai teknologi web modern, saya selalu berusaha memberikan yang terbaik untuk setiap proyek yang saya kerjakan.</p>
             </div>
