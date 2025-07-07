@@ -8,267 +8,322 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Arif Rizal - Modern Portfolio</title>
     
-    <title>Main Page Portofolio</title>
+ 
+
   </head>
   <body>
-
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg" id="navbar">
       <div class="container">
-        <a class="navbar-brand" href="#">Arif-Rizal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#home">Arif Rizal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#about">About</a>
-            <a class="nav-item nav-link" href="#project">Link Projects</a>
-            <a class="nav-item nav-link" href="#skill">Skills</a>
-            <a class="nav-item nav-link" href="#contact">Contact</a>
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </div>
         </div>
       </div>
     </nav>
-    <!-- akhir Navbar -->
 
-    <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
       <div class="container">
-        <h1 class="display-4">Get work done <span>faster</span> <br>and <span>better</span> with us</h1>
-        <a href="#" class="btn btn-primary tombol">Our Work</a>
+        <div class="hero-content">
+          <h1>Get Work Done <span style="color: var(--accent-color);">Faster</span><br>and <span style="color: var(--accent-color);">Better</span></h1>
+          <p>Creating amazing digital experiences with modern web technologies</p>
+          <a href="#projects" class="hero-btn">View My Work</a>
+        </div>
       </div>
-    </div>
-    <!-- akhir Jumbotron -->
+    </section>
 
-    <!-- mencoba multiple remote -->
-
-    <!-- container -->
+    <!-- Info Panel -->
     <div class="container">
-
-      <!-- info panel -->
-      <div class="row justify-content-center">
-        <div class="col-10 info-panel">
-          <div class="row">
-            <div class="col-lg">
-              <img src="img/employee.png" alt="Employee" class="img-fluid float-left">
-              <h4>Woork Diligently</h4>
-              <p>work quickly and neatly.</p>
+      <div class="info-panel">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="info-item">
+              <i class="fas fa-bolt"></i>
+              <h4>Work Diligently</h4>
+              <p>Work quickly and neatly with attention to detail</p>
             </div>
-            <div class="col-lg">
-              <img src="img/hires.png" alt="HiRes" class="img-fluid float-left">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="info-item">
+              <i class="fas fa-star"></i>
               <h4>Experience</h4>
-              <p>freelance and teamwork.</p>
+              <p>Freelance and teamwork experience</p>
             </div>
-            <div class="col-lg">
-              <img src="img/security.png" alt="Security" class="img-fluid float-left">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="info-item">
+              <i class="fas fa-shield-alt"></i>
               <h4>Security</h4>
-              <p>maintain the security and safety of services.</p>
+              <p>Maintain security and safety of services</p>
             </div>
           </div>
         </div>
       </div>
-      <!-- akhir info panel -->
-
-
-      <!-- Workingspace -->
-      <div class="row workingspace align-items-center" id="about">
-        <div class="col-lg-6">
-            <img src="img/workingspace.png" alt="Working Space" class="img-fluid">
-        </div>
-        <div class="col-lg-5">
-            <h2>You <span>Work</span> Like at <span>Home</span></h2>
-            <p>Bekerja dengan suasana hati yang lebih asik, menyenangkan
-                dan mempelajari hal baru setiap harinya.</p>
-        </div>
     </div>
-      <!-- akhir Workingspace -->
 
-      <!-- link projects -->
-
-      <div class="row workingspace align-items-center text-black" id="project">
-        <div class="col-12">
-            <h3>Karya Yang Telah Dibuat</h3>
-            <ul class="list-group mt-3">
-              <li class="list-group-item d-flex justify-content-between flex-wrap">
-                <div class="flex-grow-1">
-                  <a href="https://arif-rizal1122.github.io/kedaiKopi/" class="fw-400 text-decoration-none flex-grow-1 mb-0" style="color: black;"><span style="color: blue;">Silakan Kunjungi</span> : Kedai Kopi</a>
-                  <hr>
-                  <p>descripsi saja apa adanya</p>
-                </div>
-                  <div class="d-flex justify-content-center align-items-center flex-wrap">
-                      <img src="./img/img1.png" alt="Kedai Kopi" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                      <img src="./img/img1.png" alt="Kedai Kopi" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                      <img src="./img/img1.png" alt="Kedai Kopi" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                  </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between flex-wrap">
-                <div class="flex-grow-1">
-                  <a href="https://arif-rizal1122.github.io/portofolio/" class="fw-400 text-decoration-none flex-grow-1" style="color: black;"><span style="color: blue;">Silakan Kunjungi</span> : Portofolio</a>
-                  <hr>
-                  
-                  <p>descripsi saja apa adanyadescripsi saja apa adanyadescripsi descripsi saja apa adanyadescripsi saja apa adanyadescripsi descripsi saja apa adanyadescripsi saja apa adanyadescripsi</p>  
-                  
-                </div>
-                  <div class="d-flex justify-content-center align-items-center flex-wrap">
-                      <img src="./img/img1.png" alt="Portofolio" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                      <img src="./img/img1.png" alt="Portofolio" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                      <img src="./img/img1.png" alt="Portofolio" class="img-fluid mx-1" style="max-width: 200px; height: auto;">
-                  </div>
-              </li>
-          </ul>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>About Me</h2>
         </div>
-    </div>
-    <!-- akhir link projects -->
-    
-    
-    <!-- skilss -->
-    <div class="row workingspace align-items-center text-black" id="skill">
-      <div class="col-lg-12">
-          <div class="col-10-info-panel">
-              <h3 class="d-flex align-items-center justify-content-center mb-5">My Skills</h3>
-              <hr>
-              <div class="row">
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/github-sign.png" alt="GitHub" class="img-fluid large-img mr-3">
-                          <div>
-                              <span>GITHUB</span>
-                              <p>VCS Version Control System.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/html-5.png" alt="HTML5" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>HTML</h4>
-                              <p>Hyper Text Markup Languange.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/css-coding.png" alt="CSS" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>CSS</h4>
-                              <p>Cascading Style Sheet</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/database (1).png" alt="Database" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>POSTGRESSQL</h4>
-                              <p>Database Management.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/database.png" alt="Database" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>MYSQL</h4>
-                              <p>Database Management.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/java-script.png" alt="JavaScript" class="img-fluid large-img mr-3 bg-warning">
-                          <div>
-                              <h4>JAVASCRIPT</h4>
-                              <p>Website Interaktif UI.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/php.png" alt="PHP" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>PHP</h4>
-                              <p>PHP (Hypertext Preprocessor).</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-4">
-                      <div class="d-flex align-items-center">
-                          <img src="img/go.png" alt="Go" class="img-fluid large-img mr-3">
-                          <div>
-                              <h4>GO LANG</h4>
-                              <p>Mechine Learning.</p>
-                          </div>
-                      </div>
-                  </div>
+        <div class="row about-content fade-in">
+          <div class="col-lg-6">
+            <div class="about-text">
+              <h3>You <span style="color: var(--primary-color);">Work</span> Like at <span style="color: var(--primary-color);">Home</span></h3>
+              <p>Bekerja dengan suasana hati yang lebih asik, menyenangkan dan mempelajari hal baru setiap harinya. Saya adalah seorang web developer yang passionate dalam menciptakan pengalaman digital yang luar biasa.</p>
+              <p>Dengan pengalaman dalam berbagai teknologi web modern, saya selalu berusaha memberikan yang terbaik untuk setiap proyek yang saya kerjakan.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-image">
+              <img src="https://via.placeholder.com/500x400/667eea/ffffff?text=Working+Space" alt="Working Space" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>My Projects</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 fade-in">
+            <div class="project-card">
+              <div class="card-header">
+                <h5>Kedai Kopi Website</h5>
               </div>
+              <div class="card-body">
+                <p>A modern coffee shop website with responsive design and interactive features. Built with HTML, CSS, and JavaScript.</p>
+                <a href="https://arif-rizal1122.github.io/kedaiKopi/" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i> Visit Site
+                </a>
+                <div class="project-images">
+                  <img src="https://via.placeholder.com/150x100/667eea/ffffff?text=Coffee+1" alt="Coffee Shop 1">
+                  <img src="https://via.placeholder.com/150x100/764ba2/ffffff?text=Coffee+2" alt="Coffee Shop 2">
+                  <img src="https://via.placeholder.com/150x100/f093fb/ffffff?text=Coffee+3" alt="Coffee Shop 3">
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="col-lg-6 fade-in">
+            <div class="project-card">
+              <div class="card-header">
+                <h5>Portfolio Website</h5>
+              </div>
+              <div class="card-body">
+                <p>A personal portfolio website showcasing my skills and projects. Features modern design with smooth animations and responsive layout.</p>
+                <a href="https://arif-rizal1122.github.io/portofolio/" class="project-link" target="_blank">
+                  <i class="fas fa-external-link-alt"></i> Visit Site
+                </a>
+                <div class="project-images">
+                  <img src="https://via.placeholder.com/150x100/4facfe/ffffff?text=Portfolio+1" alt="Portfolio 1">
+                  <img src="https://via.placeholder.com/150x100/00f2fe/ffffff?text=Portfolio+2" alt="Portfolio 2">
+                  <img src="https://via.placeholder.com/150x100/f5576c/ffffff?text=Portfolio+3" alt="Portfolio 3">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-    <!-- skills -->
-    
+    </section>
 
-      <!-- Testimonial -->
-      <section class="testimonial" id="contact">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <p>"Bekerja dengan suasana hati yang lebih asik, menyenangkan
-              dan mempelajari hal baru setiap harinya."</p>
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>My Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <h4>GitHub</h4>
+            <p>Version Control System for code management</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <h4>HTML5</h4>
+            <p>Hyper Text Markup Language</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h4>CSS3</h4>
+            <p>Cascading Style Sheets</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4>PostgreSQL</h4>
+            <p>Database Management System</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4>MySQL</h4>
+            <p>Relational Database Management</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <h4>JavaScript</h4>
+            <p>Interactive UI Development</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-php"></i>
+            </div>
+            <h4>PHP</h4>
+            <p>Server-side Programming</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <i class="fab fa-golang"></i>
+            </div>
+            <h4>Go Lang</h4>
+            <p>Modern Programming Language</p>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-6 justify-content-center d-flex">
-            <img src="img/img1.png" alt="Testimonial 1">
-            <img src="img/img2.png" alt="Testimonial 2" class="img-main">
-            <img src="img/img3.png" alt="Testimonial 3">
-          </div>
-        </div>
-        <div class="row justify-content-center info-text">
-          <div class="col-lg text-center">
-            <h5>Sunny Ye</h5>
-            <p>Designer</p>
-          </div>
-        </div>
-      </section>
-      <!-- akhir Testimonial -->
-
-    </div>
-    <!-- akhir container -->
-
-    <footer id="contact">
-      <div class="d-flex row justify-content-center align-items-center">
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <i data-feather="facebook"></i>
-            <a href="#">facebook</a>
-          </li>
-          <li class="list-inline-item">
-            <i data-feather="instagram"></i>
-            <a href="#">instagram</a>
-          </li>
-          <li class="list-inline-item">
-            <i data-feather="github"></i>
-            <a href="#">github</a></li>
-        </ul>
       </div>
-      <small class="mt-5 fw-400 d-flex justify-content-center align-items-center">&copy CopyRight By Arif-rizal1122</small>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Let's Work Together</h2>
+        </div>
+        <div class="contact-quote fade-in">
+          "Bekerja dengan suasana hati yang lebih asik, menyenangkan dan mempelajari hal baru setiap harinya."
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="footer-text">&copy; 2024 Copyright By Arif Rizal. All rights reserved.</p>
+      </div>
     </footer>
-    
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+      // Feather Icons
+      feather.replace();
 
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
 
-      
- 
-    <!-- Optional JavaScript -->
-     <script src="js/script.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Active navigation link
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Fade in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+    </script>
   </body>
 </html>
