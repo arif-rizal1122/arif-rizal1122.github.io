@@ -1,17 +1,11 @@
-
 <!doctype html>
 <html lang="id">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- feather icon -->
     <script src="https://unpkg.com/feather-icons"></script>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <title>Arif Rizal - Portfolio Modern</title>
@@ -72,7 +66,6 @@
         background-clip: text;
       }
       
-      /* Fallback untuk browser yang tidak support background-clip */
       @supports not (-webkit-background-clip: text) {
         .navbar-brand {
           color: var(--primary-color) !important;
@@ -213,7 +206,6 @@
         margin-bottom: 20px;
       }
       
-      /* Fallback untuk browser yang tidak support background-clip */
       @supports not (-webkit-background-clip: text) {
         .info-item i {
           color: var(--primary-color) !important;
@@ -320,25 +312,70 @@
         color: var(--text-light);
         margin-bottom: 20px;
       }
+      
+      /* --- [CSS TAMBAHAN] UNTUK PROYEK DINAMIS --- */
+      .main-project-image {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
 
-      .project-images {
+      .more-images {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 10px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out, opacity 0.5s ease-in-out 0.2s;
+      }
+
+      .more-images.show {
+        max-height: 1000px; /* Nilai besar agar cukup untuk semua gambar */
+        opacity: 1;
         margin-top: 20px;
       }
 
-      .project-images img {
+      .more-images img {
         width: 100%;
         height: 100px;
         object-fit: cover;
         border-radius: 10px;
         transition: all 0.3s ease;
+        cursor: pointer;
       }
 
-      .project-images img:hover {
+      .more-images img:hover {
         transform: scale(1.05);
       }
+      
+      .see-more-btn {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      
+      .see-more-btn:hover {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      .see-more-btn .fas {
+        margin-right: 8px;
+        transition: transform 0.4s ease;
+      }
+
+      .more-images.show + .see-more-btn .fas {
+        transform: rotate(180deg);
+      }
+      /* --- [AKHIR CSS TAMBAHAN] --- */
 
       .project-link {
         display: inline-block;
@@ -396,7 +433,6 @@
         background-clip: text;
       }
       
-      /* Fallback untuk browser yang tidak support background-clip */
       @supports not (-webkit-background-clip: text) {
         .skill-icon {
           color: var(--primary-color) !important;
@@ -535,7 +571,6 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
       <div class="container">
         <a class="navbar-brand" href="#beranda">Arif Rizal</a>
@@ -554,7 +589,6 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="beranda">
       <div class="container">
         <div class="hero-content">
@@ -565,7 +599,6 @@
       </div>
     </section>
 
-    <!-- Info Panel -->
     <div class="container">
       <div class="info-panel">
         <div class="row">
@@ -594,7 +627,6 @@
       </div>
     </div>
 
-    <!-- Profile Section -->
     <section class="profile-section" id="tentang">
       <div class="container">
         <div class="section-title fade-in">
@@ -620,7 +652,6 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects-section" id="proyek">
       <div class="container">
         <div class="section-title fade-in">
@@ -643,24 +674,22 @@
                 <a href="https://smartlurah.baubaukota.go.id/" class="project-link" target="_blank">
                   <i class="fas fa-external-link-alt"></i> Lihat Website
                 </a>
-                <div class="project-images">
+
+                <img src="/img/admin/dashboard_admin.png" alt="Dashboard Utama Digides" class="main-project-image mt-4">
+                
+                <div class="more-images">
                   <img src="/img/admin/logi_admin.png" alt="admin1">
-                  <img src="/img/admin/dashboard_admin.png" alt="admin2">
                   <img src="/img/admin/data_penduduk.png" alt="admin3">
                   <img src="/img/admin/jenis_surat.png" alt="admin4">
                   <img src="/img/admin/pengajuan.png" alt="admin5">
-                  <img src="/img/admin/user_form.png" alt="admin6">
-                  <img src="/img/admin/setting_admin.png" alt="admin7">
-
-                  <!-- warga -->
-                  <img src="/img/warga/login_warga.png" alt="warga">
-                  <img src="/img/warga/register_warga.png" alt="warga1">
                   <img src="/img/warga/dashboard_warga.png" alt="warga2">
                   <img src="/img/warga/form_pengajuan.png" alt="warga3">
-                  <img src="/img/warga/form_riwayat.png" alt="warga4">
-                  <img src="/img/warga/form_profile.png" alt="warga5">
-                
                 </div>
+                
+                <a class="see-more-btn">
+                  <i class="fas fa-chevron-down"></i>
+                  <span>Lihat Lebih Banyak</span>
+                </a>
               </div>
             </div>
           </div>
@@ -680,17 +709,22 @@
                 <a href="http://surat.umbuton.ac.id/login" class="project-link" target="_blank">
                   <i class="fas fa-external-link-alt"></i> Lihat Portfolio
                 </a>
-                <div class="project-images">
 
+                <img src="/img/surat/dashboard.png" alt="Dashboard Utama Portfolio" class="main-project-image mt-4">
+                
+                <div class="more-images">
                   <img src="/img/surat/landing.png" alt="1">
-                  <img src="/img/surat/dashboard.png" alt="2">
                   <img src="/img/surat/surat_masuk.png" alt="3">
                   <img src="/img/surat/surat_keluar.png" alt="4">
                   <img src="/img/surat/agenda_masuk.png" alt="5">
                   <img src="/img/surat/agenda_keluar.png" alt="6">
                   <img src="/img/surat/setting.png" alt="7">
-                  
                 </div>
+
+                <a class="see-more-btn">
+                  <i class="fas fa-chevron-down"></i>
+                  <span>Lihat Lebih Banyak</span>
+                </a>
               </div>
             </div>
           </div>
@@ -698,7 +732,6 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills-section" id="keahlian">
       <div class="container">
         <div class="section-title fade-in">
@@ -765,7 +798,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact-section" id="kontak">
       <div class="container">
         <div class="section-title fade-in">
@@ -782,7 +814,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="social-links">
@@ -803,7 +834,6 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -824,6 +854,11 @@
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+          // Exception for see-more-btn
+          if (this.classList.contains('see-more-btn')) {
+              e.preventDefault();
+              return;
+          }
           e.preventDefault();
           const target = document.querySelector(this.getAttribute('href'));
           if (target) {
@@ -879,9 +914,37 @@
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
         if (hero) {
-          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          // Kurangi efek parallax agar tidak terlalu drastis
+          hero.style.backgroundPositionY = `${scrolled * 0.4}px`;
         }
       });
+      
+      // --- [JAVASCRIPT BARU] UNTUK KARTU PROYEK DINAMIS ---
+      document.addEventListener('DOMContentLoaded', function() {
+        const seeMoreButtons = document.querySelectorAll('.see-more-btn');
+        
+        seeMoreButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Cari elemen .card-body terdekat
+            const cardBody = this.closest('.card-body');
+            const moreImages = cardBody.querySelector('.more-images');
+            const buttonText = this.querySelector('span');
+
+            // Toggle class 'show' untuk memunculkan/menyembunyikan gambar
+            moreImages.classList.toggle('show');
+
+            // Ubah teks dan ikon tombol
+            if (moreImages.classList.contains('show')) {
+              buttonText.textContent = 'Lihat Lebih Sedikit';
+            } else {
+              buttonText.textContent = 'Lihat Lebih Banyak';
+            }
+          });
+        });
+      });
+
     </script>
   </body>
 </html>
