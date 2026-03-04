@@ -8,54 +8,54 @@ const featuredProjects = projectsData.slice(0, 2);
 
 <Layout title="Arif Rizal - Portofolio Modern">
   {/* Hero Section */}
-	<section id="beranda" class="min-h-screen flex items-center pt-20 bg-[url('/img/jumbotron-bg.jpg')] bg-cover bg-center relative overflow-hidden">
+	<section id="beranda" class="min-h-screen flex items-center pt-28 pb-20 bg-[url('/img/jumbotron-bg.jpg')] bg-cover bg-center relative overflow-hidden">
     <div class="absolute inset-0 bg-white/80 dark:bg-gray-900/90 backdrop-blur-[2px]"></div>
     
     {/* Floating Shapes based on new Palette */}
     <div class="absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
 
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-4xl mx-auto text-center reveal">
-        <div class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-8">
+        <div class="inline-flex items-center gap-2 py-1.5 px-5 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-8">
           <span class="flex h-2 w-2 rounded-full bg-blue-600 animate-ping"></span>
           Available for Projects
         </div>
-        <h1 class="mb-8">
+        <h1 class="mb-8 balance">
           Backend <span class="text-gradient">Architect</span> & Developer
         </h1>
-        <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
+        <p class="text-lg md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">
           Membangun sistem yang <span class="text-gray-900 dark:text-white font-semibold">tangguh</span>, skalabel, dan berkinerja tinggi menggunakan teknologi Backend modern.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-          <a href="/projects" class="btn-primary">
+        <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 px-4 sm:px-0">
+          <a href="/projects" class="btn-primary w-full sm:w-auto text-center">
             Eksplorasi Proyek
           </a>
-          <a href="/contact" class="btn-secondary">
+          <a href="/contact" class="btn-secondary w-full sm:w-auto text-center">
             Kontak Saya
           </a>
         </div>
       </div>
     </div>
 
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400 hidden md:block">
       <i class="fas fa-chevron-down text-2xl"></i>
     </div>
 	</section>
 
   {/* Stats Section with new Colors */}
-  <section class="py-12 -mt-16 relative z-20">
+  <section class="py-12 -mt-10 md:-mt-16 relative z-20">
     <div class="container mx-auto px-4">
-      <div class="glass p-8 md:p-12 rounded-[2.5rem] shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x border-blue-100 dark:border-gray-800">
+      <div class="glass p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x border-blue-100 dark:border-gray-800">
         {[
           { label: 'Proyek Selesai', value: '10+', color: 'text-blue-600' },
           { label: 'Klien Puas', value: '100%', color: 'text-emerald-600' },
           { label: 'Bahasa Pemrograman', value: '5+', color: 'text-blue-500' },
           { label: 'Tahun Pengalaman', value: '2+', color: 'text-emerald-500' },
         ].map((stat, i) => (
-          <div class="text-center px-4 reveal" style={`transition-delay: ${i * 100}ms;`}>
-            <p class={`text-4xl md:text-5xl font-bold mb-2 ${stat.color}`}>{stat.value}</p>
-            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">{stat.label}</p>
+          <div class="text-center p-4 md:px-4 reveal" style={`transition-delay: ${i * 100}ms;`}>
+            <p class={`text-3xl md:text-5xl font-bold mb-2 ${stat.color}`}>{stat.value}</p>
+            <p class="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -63,24 +63,24 @@ const featuredProjects = projectsData.slice(0, 2);
   </section>
 
   {/* About Section */}
-  <section id="tentang" class="py-32 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <div class="relative reveal">
-          <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-50 dark:bg-blue-900/20 rounded-[3rem] -z-10 animate-pulse"></div>
-          <div class="relative rounded-[3rem] overflow-hidden shadow-2xl group max-w-sm mx-auto lg:mx-0">
+  <section id="tentang" class="py-24 md:py-32 bg-white dark:bg-gray-900 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div class="relative reveal order-2 lg:order-1">
+          <div class="absolute -top-6 -left-6 w-32 h-32 md:-top-10 md:-left-10 md:w-40 md:h-40 bg-blue-50 dark:bg-blue-900/20 rounded-[2.5rem] md:rounded-[3rem] -z-10 animate-pulse"></div>
+          <div class="relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl group max-w-xs md:max-w-sm mx-auto lg:mx-0">
              <img src="/img/gem.png" alt="Arif Rizal" class="w-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-700" />
              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
           </div>
-          <div class="absolute -bottom-8 -right-8 glass p-6 rounded-3xl shadow-xl max-w-[200px] z-10 transition-all duration-500">
-            <p class="text-xs text-gray-500 font-bold mb-1 uppercase tracking-tighter">Current Status</p>
-            <p class="text-sm font-bold dark:text-white">Fokus pada Arsitektur Microservices & Cloud-Native.</p>
+          <div class="absolute -bottom-6 -right-2 md:-bottom-8 md:-right-8 glass p-5 md:p-6 rounded-2xl md:rounded-3xl shadow-xl max-w-[170px] md:max-w-[200px] z-10 transition-all duration-500">
+            <p class="text-[10px] text-gray-400 font-bold mb-1 uppercase tracking-tighter">Current Status</p>
+            <p class="text-xs md:text-sm font-bold dark:text-white leading-tight">Fokus pada Arsitektur Microservices & Cloud-Native.</p>
           </div>
         </div>
 
-        <div class="reveal" style="transition-delay: 200ms;">
-          <h2 class="mb-8">Driven by <span class="text-blue-600">Performance</span>, Focused on Code Quality.</h2>
-          <p class="text-lg mb-8">
+        <div class="reveal order-1 lg:order-2 text-center lg:text-left" style="transition-delay: 200ms;">
+          <h2 class="mb-6 md:mb-8">Driven by <span class="text-blue-600">Performance</span>, Focused on Code Quality.</h2>
+          <p class="text-base md:text-lg mb-8 leading-relaxed">
             Saya mengkhususkan diri dalam membangun API yang tangguh menggunakan <span class="text-gray-900 dark:text-white font-semibold">Go Lang</span> dan <span class="text-gray-900 dark:text-white font-semibold">Laravel</span>. Filosofi saya dalam bekerja adalah kesederhanaan dalam struktur, namun maksimal dalam performa.
           </p>
           
@@ -175,7 +175,6 @@ const featuredProjects = projectsData.slice(0, 2);
       </div>
     </div>
   </section>
-</Layout>
 </Layout>
 
 <style>

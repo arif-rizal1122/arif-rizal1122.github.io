@@ -44,61 +44,61 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="glass p-8 md:p-12 rounded-[2.5rem] shadow-2xl border-blue-100 dark:border-gray-800">
+    <div className="glass p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-blue-100 dark:border-gray-800">
       {status === 'SUCCESS' ? (
-        <div className="text-center py-12 reveal active">
-          <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fas fa-check text-3xl"></i>
+        <div className="text-center py-8 md:py-12 reveal active">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i className="fas fa-check text-2xl md:text-3xl"></i>
           </div>
-          <h3 className="text-2xl font-bold mb-4 dark:text-white">Pesan Terkirim!</h3>
-          <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-sm mx-auto">Terima kasih telah menghubungi saya. Saya akan segera membalas pesan Anda dalam waktu 1x24 jam.</p>
+          <h3 className="text-xl md:text-2xl font-bold mb-4 dark:text-white">Pesan Terkirim!</h3>
+          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 mb-8 max-w-xs md:max-w-sm mx-auto">Terima kasih telah menghubungi saya. Saya akan segera membalas pesan Anda dalam waktu 1x24 jam.</p>
           <button onClick={() => setStatus('')} className="text-blue-600 font-bold hover:underline">Kirim pesan lain &rarr;</button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Nama Lengkap</label>
+              <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Nama Lengkap</label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 required
-                className="w-full px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                className="w-full px-5 py-3 md:px-6 md:py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white text-base"
                 placeholder="John Doe"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Email</label>
+              <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email</label>
               <input
                 type="email"
                 name="email"
                 id="email"
                 required
-                className="w-full px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                className="w-full px-5 py-3 md:px-6 md:py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white text-base"
                 placeholder="john@example.com"
               />
             </div>
           </div>
           <div className="space-y-2">
-            <label htmlFor="subject" className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Subjek</label>
+            <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Subjek</label>
             <input
               type="text"
               name="subject"
               id="subject"
               required
-              className="w-full px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+              className="w-full px-5 py-3 md:px-6 md:py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white text-base"
               placeholder="Kerjasama Proyek"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Pesan</label>
+            <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Pesan</label>
             <textarea
               name="message"
               id="message"
               required
-              rows="5"
-              className="w-full px-6 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white resize-none"
+              rows="4"
+              className="w-full px-5 py-3 md:px-6 md:py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 rounded-xl md:rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white text-base resize-none"
               placeholder="Tulis pesan Anda di sini..."
             ></textarea>
           </div>
