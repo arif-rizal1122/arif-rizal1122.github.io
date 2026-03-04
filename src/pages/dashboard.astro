@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TasksWidget from '../components/TasksWidget';
+---
+
+<Layout title="Dashboard Pribadi - Arif Rizal">
+	<main class="pt-32 pb-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Personal Dashboard</h1>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Ringkasan profil dan manajemen tugas harian Anda.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Profile Card */}
+        <div class="lg:col-span-1">
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 text-center">
+            <img src="/img/gem.png" alt="Arif Rizal" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-indigo-50 dark:border-indigo-900 object-cover" />
+            <h3 class="text-2xl font-bold dark:text-white">Arif Rizal</h3>
+            <p class="text-indigo-600 font-medium mb-6 uppercase tracking-widest text-xs">Backend Developer</p>
+            
+            <div class="space-y-4 text-left">
+              <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <i class="fas fa-code w-5 text-indigo-500"></i>
+                <span>Laravel, Go, Java, MySQL</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <i class="fas fa-map-marker-alt w-5 text-indigo-500"></i>
+                <span>Jakarta Selatan, ID</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                <i class="fas fa-calendar-alt w-5 text-indigo-500"></i>
+                <span>Aktif Sejak 2024</span>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700 flex justify-center gap-4">
+              <a href="https://github.com/arif-rizal1122" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-900 hover:text-white transition-all">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Tasks Section */}
+        <div class="lg:col-span-2">
+          <TasksWidget client:load />
+          
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="/notes" class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-2xl border border-yellow-100 dark:border-yellow-800 hover:shadow-md transition-shadow group">
+              <div class="flex justify-between items-start mb-4">
+                <i class="fas fa-sticky-note text-yellow-500 text-xl"></i>
+                <i class="fas fa-arrow-right text-yellow-300 group-hover:translate-x-1 transition-transform"></i>
+              </div>
+              <h4 class="font-bold mb-1">Buka Catatan</h4>
+              <p class="text-xs text-gray-500">Kelola ide dan snippet kode Anda.</p>
+            </a>
+            <a href="/projects" class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800 hover:shadow-md transition-shadow group">
+              <div class="flex justify-between items-start mb-4">
+                <i class="fas fa-project-diagram text-indigo-500 text-xl"></i>
+                <i class="fas fa-arrow-right text-indigo-300 group-hover:translate-x-1 transition-transform"></i>
+              </div>
+              <h4 class="font-bold mb-1">Kelola Proyek</h4>
+              <p class="text-xs text-gray-500">Lihat dan update portofolio Anda.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+	</main>
+</Layout>

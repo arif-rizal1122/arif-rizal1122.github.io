@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard';
+import projectsData from '../data/projects.json';
+
+const featuredProjects = projectsData.slice(0, 2);
+---
+
+<Layout title="Arif Rizal - Portofolio Modern">
+  {/* Hero Section */}
+	<section id="beranda" class="min-h-screen flex items-center pt-20 bg-[url('/img/jumbotron-bg.jpg')] bg-cover bg-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-white/80 dark:bg-gray-900/90 backdrop-blur-[2px]"></div>
+    
+    {/* Floating Shapes based on new Palette */}
+    <div class="absolute top-1/4 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center reveal">
+        <div class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-8">
+          <span class="flex h-2 w-2 rounded-full bg-blue-600 animate-ping"></span>
+          Available for Projects
+        </div>
+        <h1 class="mb-8">
+          Backend <span class="text-gradient">Architect</span> & Developer
+        </h1>
+        <p class="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
+          Membangun sistem yang <span class="text-gray-900 dark:text-white font-semibold">tangguh</span>, skalabel, dan berkinerja tinggi menggunakan teknologi Backend modern.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="/projects" class="btn-primary">
+            Eksplorasi Proyek
+          </a>
+          <a href="/contact" class="btn-secondary">
+            Kontak Saya
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
+      <i class="fas fa-chevron-down text-2xl"></i>
+    </div>
+	</section>
+
+  {/* Stats Section with new Colors */}
+  <section class="py-12 -mt-16 relative z-20">
+    <div class="container mx-auto px-4">
+      <div class="glass p-8 md:p-12 rounded-[2.5rem] shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x border-blue-100 dark:border-gray-800">
+        {[
+          { label: 'Proyek Selesai', value: '10+', color: 'text-blue-600' },
+          { label: 'Klien Puas', value: '100%', color: 'text-emerald-600' },
+          { label: 'Bahasa Pemrograman', value: '5+', color: 'text-blue-500' },
+          { label: 'Tahun Pengalaman', value: '2+', color: 'text-emerald-500' },
+        ].map((stat, i) => (
+          <div class="text-center px-4 reveal" style={`transition-delay: ${i * 100}ms;`}>
+            <p class={`text-4xl md:text-5xl font-bold mb-2 ${stat.color}`}>{stat.value}</p>
+            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* About Section */}
+  <section id="tentang" class="py-32 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative reveal">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-50 dark:bg-blue-900/20 rounded-[3rem] -z-10 animate-pulse"></div>
+          <div class="relative rounded-[3rem] overflow-hidden shadow-2xl group max-w-sm mx-auto lg:mx-0">
+             <img src="/img/gem.png" alt="Arif Rizal" class="w-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-700" />
+             <div class="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
+          </div>
+          <div class="absolute -bottom-8 -right-8 glass p-6 rounded-3xl shadow-xl max-w-[200px] z-10 transition-all duration-500">
+            <p class="text-xs text-gray-500 font-bold mb-1 uppercase tracking-tighter">Current Status</p>
+            <p class="text-sm font-bold dark:text-white">Fokus pada Arsitektur Microservices & Cloud-Native.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 200ms;">
+          <h2 class="mb-8">Driven by <span class="text-blue-600">Performance</span>, Focused on Code Quality.</h2>
+          <p class="text-lg mb-8">
+            Saya mengkhususkan diri dalam membangun API yang tangguh menggunakan <span class="text-gray-900 dark:text-white font-semibold">Go Lang</span> dan <span class="text-gray-900 dark:text-white font-semibold">Laravel</span>. Filosofi saya dalam bekerja adalah kesederhanaan dalam struktur, namun maksimal dalam performa.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {[
+              { icon: 'fas fa-code', title: 'Clean Architecture', desc: 'Pemrograman terstruktur dan mudah dipelihara.' },
+              { icon: 'fas fa-server', title: 'System Scalability', desc: 'Sistem yang siap menghadapi pertumbuhan trafik.' }
+            ].map(item => (
+              <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 hover:border-blue-500/30 transition-all">
+                <i class={`${item.icon} text-blue-500 mb-3 block text-xl`}></i>
+                <h4 class="mb-1">{item.title}</h4>
+                <p class="text-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <a href="/contact" class="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-4 transition-all group">
+            Mari Berbincang <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Projects Preview */}
+  <section id="proyek" class="py-32 bg-gray-50 dark:bg-gray-800/30">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+        <div>
+          <h2 class="mb-4">Proyek Pilihan</h2>
+          <p>Beberapa karya terbaik yang pernah saya kerjakan.</p>
+        </div>
+        <a href="/projects" class="btn-secondary">
+          Lihat Semua
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {featuredProjects.map((project, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 200}ms;`}>
+            <ProjectCard project={project} client:visible />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Skills Grid */}
+  <section class="py-32 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-20 reveal">
+        <h2 class="mb-6">Lanskap Teknologi</h2>
+        <p class="max-w-2xl mx-auto">Alat dan bahasa yang saya gunakan untuk mewujudkan solusi digital.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8">
+        {[
+          { name: 'Go Lang', icon: 'fab fa-golang' },
+          { name: 'PHP/Laravel', icon: 'fab fa-laravel' },
+          { name: 'Java Spring', icon: 'fas fa-leaf' },
+          { name: 'MySQL', icon: 'fas fa-database' },
+          { name: 'PostgreSQL', icon: 'fas fa-server' },
+          { name: 'Docker', icon: 'fab fa-docker' },
+        ].map((skill, i) => (
+          <div class="group p-8 rounded-3xl bg-gray-50 dark:bg-gray-800/50 border border-transparent hover:border-blue-500/30 transition-all text-center reveal" style={`transition-delay: ${i * 50}ms;`}>
+            <div class="w-16 h-16 mx-auto mb-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm flex items-center justify-center text-gray-400 group-hover:text-blue-500 group-hover:rotate-12 transition-all duration-500">
+              <i class={`${skill.icon} text-3xl`}></i>
+            </div>
+            <p class="font-bold text-sm dark:text-gray-200">{skill.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Call to Action */}
+  <section class="py-24">
+    <div class="container mx-auto px-4">
+      <div class="relative rounded-[3rem] overflow-hidden bg-blue-600 p-12 md:p-24 text-center text-white reveal">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <h2 class="text-4xl md:text-6xl font-bold mb-8 text-white">Punya Ide Proyek Bagus?</h2>
+          <p class="text-xl text-blue-100 mb-12 leading-relaxed">
+            Klik tombol di bawah ini untuk mendiskusikan bagaimana saya dapat membantu Anda membangun aplikasi backend yang handal.
+          </p>
+          <a href="/contact" class="inline-block px-12 py-5 bg-white text-blue-600 font-bold rounded-2xl hover:bg-blue-50 transition-all shadow-2xl active:scale-95">
+            Mulai Berdiskusi
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+</Layout>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+</style>

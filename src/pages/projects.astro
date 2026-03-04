@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard';
+import projectsData from '../data/projects.json';
+
+// Get unique tags for filtering
+const allTags = [...new Set(projectsData.flatMap(p => p.tags))].sort();
+---
+
+<Layout title="Karya Terpilih - Arif Rizal">
+	<main class="pt-32 pb-24 min-h-screen">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 reveal">
+        <h1 class="mb-6">Karya <span class="text-gradient font-['Poppins'] italic">Terpilih</span></h1>
+        <p class="max-w-2xl mx-auto text-lg leading-relaxed">
+          Eksplorasi kumpulan sistem dan arsitektur backend yang telah saya bangun. Fokus pada <span class="text-blue-600 font-semibold">skalabilitas</span>, <span class="text-blue-600 font-semibold">keamanan</span>, dan <span class="text-blue-600 font-semibold">performa</span>.
+        </p>
+      </div>
+
+      <div class="mb-16 reveal" style="transition-delay: 150ms;">
+        <div class="flex flex-wrap justify-center gap-4">
+          <button class="filter-btn active px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition-all shadow-xl shadow-blue-500/10 bg-blue-600 text-white" data-filter="all">
+            Semua Proyek
+          </button>
+          {allTags.map(tag => (
+            <button class="filter-btn px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest transition-all bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-100 dark:border-gray-700 hover:border-blue-500 hover:text-blue-600 shadow-sm" data-filter={tag}>
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="projects-grid">
+        {projectsData.map((project, i) => (
+          <div class="project-item reveal" data-tags={JSON.stringify(project.tags)} style={`transition-delay: ${i * 100}ms;`}>
+            <ProjectCard project={project} client:load />
+          </div>
+        ))}
+      </div>
+    </div>
+	</main>
+</Layout>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Reset all buttons
+      filterButtons.forEach(b => {
+        b.classList.remove('active', 'bg-blue-600', 'text-white', 'shadow-xl', 'shadow-blue-500/10');
+        b.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-500', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700');
+      });
+      
+      // Set active button
+      btn.classList.add('active', 'bg-blue-600', 'text-white', 'shadow-xl', 'shadow-blue-500/10');
+      btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-500', 'dark:text-gray-400', 'border-gray-100', 'dark:border-gray-700');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectItems.forEach(item => {
+        const itemEl = item as HTMLElement;
+        const tags = JSON.parse(itemEl.getAttribute('data-tags') || '[]');
+        if (filter === 'all' || tags.includes(filter)) {
+          itemEl.style.display = 'block';
+          setTimeout(() => itemEl.classList.add('active'), 10);
+        } else {
+          itemEl.classList.remove('active');
+          setTimeout(() => {
+            if (!itemEl.classList.contains('active')) {
+              itemEl.style.display = 'none';
+            }
+          }, 500);
+        }
+      });
+    });
+  });
+</script>

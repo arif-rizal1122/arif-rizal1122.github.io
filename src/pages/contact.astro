@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="Hubungi Saya - Arif Rizal">
+	<main class="pt-32 pb-24 min-h-screen">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-20 reveal">
+        <h1 class="mb-6 lowercase italic font-['Poppins'] tracking-tight"><span class="text-gradient">Get in</span> touch</h1>
+        <p class="max-w-2xl mx-auto text-lg leading-relaxed">
+          Ada ide proyek atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya melalui formulir di bawah ini atau melalui saluran resmi lainnya.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div class="lg:col-span-1 space-y-6 reveal" style="transition-delay: 100ms;">
+          {[
+            { icon: 'fas fa-envelope', label: 'Email Resmi', value: 'rizallarif32@gmail.com', href: 'mailto:rizallarif32@gmail.com', color: 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' },
+            { icon: 'fab fa-whatsapp', label: 'WhatsApp', value: '+62 851 7435 2719', href: 'https://wa.me/6285174352719', color: 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400' },
+            { icon: 'fab fa-linkedin', label: 'LinkedIn', value: 'Arif Rizal', href: 'https://linkedin.com/in/arifrizal', color: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300' },
+          ].map((item) => (
+            <a href={item.href} target="_blank" class="block p-8 rounded-[2rem] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-blue-500/30 hover:shadow-xl transition-all group">
+              <div class={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform duration-500`}>
+                <i class={item.icon}></i>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">{item.label}</p>
+              <p class="text-lg font-bold dark:text-white break-all">{item.value}</p>
+            </a>
+          ))}
+        </div>
+
+        <div class="lg:col-span-2 reveal" style="transition-delay: 300ms;">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
+	</main>
+</Layout>

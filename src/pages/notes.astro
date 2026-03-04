@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NotesWidget from '../components/NotesWidget';
+---
+
+<Layout title="Notes - Arif Rizal">
+	<main class="pt-32 pb-24">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Personal Notes</h1>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Simpan ide, potongan kode, atau catatan belajar Anda di sini. Data tersimpan secara lokal di browser Anda.
+        </p>
+      </div>
+
+      <NotesWidget client:load />
+    </div>
+	</main>
+</Layout>

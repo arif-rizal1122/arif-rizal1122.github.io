@@ -1,0 +1,99 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} - Arif Rizal`}>
+	<main class="pt-32 pb-24">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <a href="/blog" class="inline-flex items-center text-indigo-500 hover:text-indigo-600 mb-8 transition-colors">
+        <i class="fas fa-arrow-left mr-2"></i> Kembali ke Blog
+      </a>
+      
+      <article class="prose prose-lg dark:prose-invert max-w-none">
+        <div class="mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
+          <div class="flex items-center text-gray-500 dark:text-gray-400">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('id-ID', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+          </div>
+        </div>
+
+        {post.data.heroImage && (
+          <img src={post.data.heroImage} alt={post.data.title} class="w-full rounded-2xl shadow-lg mb-12" />
+        )}
+
+        <div class="markdown-content">
+          <Content />
+        </div>
+      </article>
+    </div>
+	</main>
+</Layout>
+
+<style is:global>
+  /* Custom markdown styling for tailwind prose compatibility */
+  .markdown-content h1 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;    /* font-bold */
+    margin-top: 2rem;    /* mt-8 */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  .dark .markdown-content h1 { color: white; }
+
+  .markdown-content h2 {
+    font-size: 1.5rem;   /* text-2xl */
+    font-weight: 700;    /* font-bold */
+    margin-top: 2rem;    /* mt-8 */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  .dark .markdown-content h2 { color: white; }
+
+  .markdown-content h3 {
+    font-size: 1.25rem;  /* text-xl */
+    font-weight: 700;    /* font-bold */
+    margin-top: 1.5rem;  /* mt-6 */
+    margin-bottom: 0.75rem; /* mb-3 */
+  }
+  .dark .markdown-content h3 { color: white; }
+
+  .markdown-content p {
+    color: #4b5563;      /* text-gray-600 */
+    margin-bottom: 1rem; /* mb-4 */
+    line-height: 1.625;  /* leading-relaxed */
+  }
+  .dark .markdown-content p { color: #9ca3af; } /* text-gray-400 */
+
+  .markdown-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem; /* pl-6 */
+    margin-bottom: 1rem;  /* mb-4 */
+    color: #4b5563;      /* text-gray-600 */
+  }
+  .dark .markdown-content ul { color: #9ca3af; }
+
+  .markdown-content li { margin-bottom: 0.5rem; } /* mb-2 */
+
+  .markdown-content strong {
+    font-weight: 700;
+    color: #111827;      /* text-gray-900 */
+  }
+  .dark .markdown-content strong { color: white; }
+</style>

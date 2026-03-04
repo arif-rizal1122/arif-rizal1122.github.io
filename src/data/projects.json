@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Website Digides",
+    "description": "Website Digides merupakan sistem layanan administrasi desa digital yang dibangun menggunakan modern admin template Velzon untuk menghadirkan tampilan profesional dan responsif, dengan dukungan Laravel 12, MySQL, dan JavaScript (AJAX).",
+    "tags": ["Laravel 12", "MySQL", "AJAX", "Bootstrap", "Velzon"],
+    "features": [
+      "Sistem Dua Peran (Admin & Warga)",
+      "Pengajuan Surat Online",
+      "Manajemen Data Master",
+      "Pelacakan Status",
+      "Generate PDF"
+    ],
+    "image": "/img/admin/dashboard_admin.png",
+    "moreImages": [
+      "/img/admin/logi_admin.png",
+      "/img/admin/data_penduduk.png",
+      "/img/admin/jenis_surat.png",
+      "/img/admin/pengajuan.png"
+    ],
+    "demoUrl": "https://youtu.be/bxGbLwdOScE"
+  },
+  {
+    "id": 2,
+    "title": "Sistem Informasi Arsip Persuratan",
+    "description": "Sistem informasi berbasis web untuk pengelolaan arsip surat masuk dan keluar secara terpusat, mendukung disposisi, pelacakan, dan pencarian arsip cepat.",
+    "tags": ["Laravel 12", "MySQL", "AJAX", "Bootstrap"],
+    "features": [
+      "Autentikasi & Otorisasi",
+      "Surat Masuk & Keluar",
+      "Disposisi Surat",
+      "Live Search Arsip",
+      "Ekspor PDF / Excel"
+    ],
+    "image": "/img/surat/dashboard.png",
+    "moreImages": [
+      "/img/surat/landing.png",
+      "/img/surat/surat_masuk.png",
+      "/img/surat/surat_keluar.png",
+      "/img/surat/agenda_masuk.png"
+    ],
+    "demoUrl": "https://youtu.be/gtNsTwiAxlQ"
+  },
+  {
+    "id": 3,
+    "title": "Payment System - Java Spring Boot Personal Project",
+    "description": "Enterprise payment application demonstrating modern Java development practices with Spring Boot framework.",
+    "tags": ["Java Spring Boot", "RESTful API", "Database Integration"],
+    "features": [
+      "Console applications",
+      "Spring Boot projects",
+      "RESTful APIs",
+      "Database integration projects"
+    ],
+    "icon": "fab fa-java",
+    "githubUrl": "https://github.com/arif-rizal1122/payment_java"
+  },
+  {
+    "id": 4,
+    "title": "Banking System - Java Spring Boot Personal Project",
+    "description": "Comprehensive banking application showcasing enterprise-level Java development with desktop and API integration.",
+    "tags": ["Java Spring Boot", "JavaFX/Swing", "RESTful API", "Database"],
+    "features": [
+      "Console applications",
+      "Desktop applications (JavaFX/Swing)",
+      "Spring Boot projects",
+      "RESTful APIs",
+      "Database integration projects"
+    ],
+    "icon": "fab fa-java",
+    "githubUrl": "https://github.com/arif-rizal1122/bangkir-java"
+  },
+  {
+    "id": 5,
+    "title": "Golang REST API - Book Store Personal Project",
+    "description": "Comprehensive Book Store REST API built with GoFiber framework demonstrating modern Go development patterns.",
+    "tags": ["Go Lang", "GoFiber", "RESTful API", "Database Integration"],
+    "features": [
+      "RESTful API architecture",
+      "GoFiber framework implementation",
+      "Database integration",
+      "Modern Go development patterns"
+    ],
+    "icon": "fab fa-golang",
+    "githubUrl": "https://github.com/arif-rizal1122/golang-rest-api"
+  },
+  {
+    "id": 6,
+    "title": "Go Online Shop - E-commerce API Personal Project",
+    "description": "E-commerce application built with GoFiber featuring complete online shop business logic and REST API endpoints.",
+    "tags": ["Go Lang", "GoFiber", "RESTful API", "Database Integration"],
+    "features": [
+      "RESTful API endpoints",
+      "GoFiber framework",
+      "Database integration",
+      "Online shop business logic"
+    ],
+    "icon": "fab fa-golang",
+    "githubUrl": "https://github.com/arif-rizal1122/go-online-shop"
+  }
+]

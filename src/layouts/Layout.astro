@@ -1,0 +1,211 @@
+---
+import Navbar from '../components/Navbar';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Portfolio Modern Arif Rizal - Backend Developer | Go Lang | Laravel | Java Spring" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO -->
+    <meta name="author" content="Arif Rizal" />
+    <meta name="keywords" content="Arif Rizal, Backend Developer, Go Lang, Laravel, Portfolio" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Portfolio Modern Arif Rizal - Backend Developer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+		<title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	</head>
+	<body class="bg-[#0f172a] text-[#f8fafc] transition-colors duration-500 antialiased selection:bg-blue-900/40">
+    <Navbar client:load />
+
+		<main class="reveal">
+			<slot />
+		</main>
+
+    <footer class="bg-gray-50 dark:bg-gray-800 py-12">
+      <div class="container mx-auto px-4 text-center">
+        <div class="flex justify-center space-x-6 mb-8">
+          <a href="#" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
+          <a href="#" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+          <a href="https://github.com/arif-rizal1122" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-github text-2xl"></i></a>
+          <a href="#" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+        </div>
+        <p class="text-gray-500 dark:text-gray-400">&copy; 2024 Hak Cipta oleh Arif Rizal. Semua hak dilindungi undang-undang.</p>
+      </div>
+    </footer>
+
+	</body>
+</html>
+
+<style is:global>
+  @import "tailwindcss";
+
+	:root {
+		--primary: #2563EB;
+		--primary-dark: #1D4ED8;
+		--primary-light: #3B82F6;
+    --accent: #10B981;
+    --background: #FFFFFF;
+    --surface: #F9FAFB;
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+  @theme {
+    --color-blue-600: #2563EB;
+    --color-emerald-500: #10B981;
+  }
+
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: background-color var(--transition), color var(--transition);
+	}
+
+  /* Refined Dark Mode Palette (Slate/Navy) for Eye Comfort */
+  .dark {
+    --background: #0f172a; /* Slate 900 */
+    --surface: #1e293b;    /* Slate 800 */
+    --text-primary: #f8fafc;   /* Slate 50 */
+    --text-secondary: #94a3b8; /* Slate 400 */
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color var(--transition), color var(--transition);
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 3rem); line-height: 1.2; font-weight: 700; font-family: 'Poppins', sans-serif; transition: color var(--transition); }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.25rem); line-height: 1.25; font-weight: 700; font-family: 'Poppins', sans-serif; transition: color var(--transition); }
+  h3 { font-size: 1.875rem; line-height: 1.3; font-weight: 600; font-family: 'Poppins', sans-serif; transition: color var(--transition); }
+  h4 { font-size: 1.5rem; line-height: 1.35; font-weight: 600; font-family: 'Poppins', sans-serif; transition: color var(--transition); }
+  
+  p { line-height: 1.5; color: var(--text-secondary); transition: color var(--transition); }
+
+  /* Reveal Animation per context_frontend.md */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #374151;
+  }
+
+  /* Premium Utilities */
+  @utility glass {
+    background-color: rgb(255 255 255 / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    transition: background-color var(--transition), border-color var(--transition);
+  }
+
+  .dark .glass {
+    background-color: rgb(30 41 59 / 0.7); /* Adjusted for Slate 800 */
+    border-color: rgb(51 65 85 / 0.3);      /* Adjusted for Slate 700 */
+  }
+
+  @utility text-gradient {
+    background-image: linear-gradient(to right, #2563EB, #10B981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @utility btn-primary {
+    padding: 0.75rem 2rem;
+    background-color: #2563EB;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #1D4ED8;
+      box-shadow: 0 10px 15px -3px rgb(37 99 235 / 0.2);
+    }
+    &:active {
+      scale: 0.95;
+    }
+  }
+
+  @utility btn-secondary {
+    padding: 0.75rem 2rem;
+    background-color: white;
+    color: #111827;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    border: 1px solid #E5E7EB;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #F9FAFB;
+    }
+    &:active {
+      scale: 0.95;
+    }
+  }
+
+  :dark @utility btn-secondary {
+    background-color: #1F2937;
+    color: white;
+    border-color: #374151;
+    &:hover {
+      background-color: #374151;
+    }
+  }
+</style>
+
+<script>
+  // Reveal animations on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  });
+
+  // Fallback for non-ViewTransitions pages
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

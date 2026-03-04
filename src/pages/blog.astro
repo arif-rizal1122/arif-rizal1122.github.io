@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="Blog - Arif Rizal">
+	<main class="pt-32 pb-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Blog & Artikel</h1>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Catatan teknis, tutorial, dan pemikiran seputar pengembangan perangkat lunak.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-indigo-500 overflow-hidden group">
+            <a href={`/blog/${post.slug}`} class="block">
+              <div class="aspect-video bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                {post.data.heroImage && (
+                  <img src={post.data.heroImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                )}
+              </div>
+              <div class="p-6">
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('id-ID', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </div>
+                <h2 class="text-xl font-bold mb-3 group-hover:text-indigo-600 transition-colors">{post.data.title}</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+                  {post.data.description}
+                </p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+	</main>
+</Layout>
