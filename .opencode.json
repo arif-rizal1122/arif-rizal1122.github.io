@@ -1,0 +1,9 @@
+{
+  "name": "spiffy-sphere",
+  "description": "Astro + React + Tailwind CSS personal site",
+  "agents": {
+    "general": {
+      "instructions": "Refer to AGENTS.md for project conventions. Always use TypeScript, Tailwind CSS for styling, and Astro's file-based routing."
+    }
+  }
+}
