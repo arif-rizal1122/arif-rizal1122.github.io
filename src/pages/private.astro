@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PrivateGate from '../components/PrivateGate';
+import NofapTracker from '../components/NofapTracker';
+---
+
+<Layout title="Area Pribadi - Arif Rizal" noindex noFooter>
+  <main class="pt-20 md:pt-28 lg:pt-32 pb-8 md:pb-24">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <PrivateGate client:load>
+        <NofapTracker client:load />
+      </PrivateGate>
+    </div>
+  </main>
+</Layout>
