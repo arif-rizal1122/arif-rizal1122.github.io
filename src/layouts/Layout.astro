@@ -43,15 +43,50 @@ const { title, noindex = false, noFooter = false } = Astro.props;
 		</main>
 
     {!noFooter && (
-    <footer class="bg-gray-50 dark:bg-gray-800 py-12">
-      <div class="container mx-auto px-4 text-center">
-        <div class="flex justify-center space-x-6 mb-8">
-          <a href="javascript:void(0)" aria-label="Facebook" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
-          <a href="javascript:void(0)" aria-label="Instagram" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
-          <a href="https://github.com/arif-rizal1122" aria-label="GitHub" target="_blank" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-github text-2xl"></i></a>
-          <a href="javascript:void(0)" aria-label="LinkedIn" class="text-gray-400 hover:text-indigo-500 transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+    <footer class="bg-[#0a1122] border-t border-white/5 py-12 md:py-16 mt-auto">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-16 mb-10">
+          <!-- Brand -->
+          <div class="text-center md:text-left max-w-sm">
+            <a
+              href="/"
+              class="inline-block font-bold font-['Poppins'] bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent hover:scale-105 transition-transform text-xl md:text-2xl"
+            >
+              Arif Rizal
+            </a>
+            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+              Backend Developer — Laravel, Go &amp; Java. Membangun solusi yang cepat, andal, dan scalable.
+            </p>
+          </div>
+
+          <!-- Navigasi -->
+          <nav class="text-center md:text-left">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">Navigasi</h4>
+            <div class="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2.5">
+              <a href="/#beranda" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 hover:text-blue-400 transition-colors">Beranda</a>
+              <a href="/projects" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 hover:text-blue-400 transition-colors">Proyek</a>
+              <a href="/blog" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 hover:text-blue-400 transition-colors">Blog</a>
+              <a href="/dashboard" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 hover:text-blue-400 transition-colors">Dashboard</a>
+              <a href="/contact" class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 hover:text-blue-400 transition-colors">Kontak</a>
+            </div>
+          </nav>
+
+          <!-- Sosial -->
+          <div class="text-center md:text-right">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-4">Sosial Media</h4>
+            <div class="flex justify-center md:justify-end space-x-3">
+              <a href="javascript:void(0)" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all"><i class="fab fa-facebook-f"></i></a>
+              <a href="javascript:void(0)" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-pink-600 hover:border-pink-600 transition-all"><i class="fab fa-instagram"></i></a>
+              <a href="https://github.com/arif-rizal1122" aria-label="GitHub" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 hover:border-slate-700 transition-all"><i class="fab fa-github"></i></a>
+              <a href="javascript:void(0)" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-700 hover:border-blue-700 transition-all"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
         </div>
-        <p class="text-gray-500 dark:text-gray-400">&copy; 2024 Hak Cipta oleh Arif Rizal. Semua hak dilindungi undang-undang.</p>
+
+        <!-- Copyright -->
+        <div class="pt-6 border-t border-white/5 text-center">
+          <p class="text-xs text-slate-500">&copy; 2024 Arif Rizal. Dibuat dengan <i class="fas fa-heart text-red-500"></i> dan Astro.</p>
+        </div>
       </div>
     </footer>
     )}
