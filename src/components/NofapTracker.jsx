@@ -197,6 +197,21 @@ const NofapTracker = () => {
 
   return (
     <div className="space-y-6 md:space-y-8">
+      {/* Live Clock */}
+      <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 md:p-8 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 md:hidden">
+          <i className="fas fa-calendar text-blue-400 mr-1.5"></i>
+          {clockDate}
+        </p>
+        <p className="hidden md:block text-xs md:text-sm text-gray-400">
+          <i className="fas fa-calendar text-blue-400 mr-2"></i>
+          {clockDate}
+        </p>
+        <p className="text-3xl md:text-4xl font-extrabold font-['Poppins'] bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent tabular-nums">
+          {clockTime} <span className="text-sm md:text-base font-bold text-gray-400 align-middle"><i className="fas fa-clock ml-1"></i> WIB</span>
+        </p>
+      </div>
+
       {/* Setup / Tanggal Mulai */}
       {!data.startDate && (
         <div className="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 text-center">
@@ -230,30 +245,19 @@ const NofapTracker = () => {
         <>
           <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
             <div className="p-8 md:p-12 text-center">
-              <div className="flex items-start justify-between gap-4 mb-6 -mt-2">
-                <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">
-                    <i className="fas fa-calendar text-blue-400 mr-1.5"></i>
-                    {clockDate}
-                  </p>
-                  <p className="text-2xl md:text-3xl font-extrabold font-['Poppins'] text-blue-500 dark:text-blue-400 tabular-nums mt-1">
-                    {clockTime} <span className="text-xs font-bold text-gray-400 align-middle"><i className="fas fa-clock ml-1"></i> WIB</span>
-                  </p>
-                </div>
-                <div className="flex flex-col items-end gap-2">
-                  <button
-                    onClick={() => setShowRelapseForm((v) => !v)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/30 transition-all"
-                  >
-                    <i className="fas fa-exclamation-triangle"></i> Kambuh
-                  </button>
-                  <button
-                    onClick={handleReset}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
-                  >
-                    <i className="fas fa-rotate-left"></i> Reset
-                  </button>
-                </div>
+              <div className="flex items-center justify-end gap-2 mb-6 -mt-2">
+                <button
+                  onClick={() => setShowRelapseForm((v) => !v)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/30 transition-all"
+                >
+                  <i className="fas fa-exclamation-triangle"></i> Kambuh
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
+                >
+                  <i className="fas fa-rotate-left"></i> Reset
+                </button>
               </div>
 
               <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 flex items-center justify-center">
